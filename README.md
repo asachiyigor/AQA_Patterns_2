@@ -1,0 +1,1 @@
+# Patterns [![Build status](https://ci.appveyor.com/api/projects/status/jocr5joyeub0gajs/branch/main?svg=true)](https://ci.appveyor.com/project/asachiyigor/aqa-patterns-1/branch/main)
