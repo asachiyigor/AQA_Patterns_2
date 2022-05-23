@@ -1,10 +1,9 @@
-package ru.netology.Data;
+package ru.netology.data;
 
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import io.restassured.http.ContentType;
 import io.restassured.specification.RequestSpecification;
-import org.junit.jupiter.api.BeforeAll;
 
 import static io.restassured.RestAssured.given;
 
@@ -17,8 +16,7 @@ public class Auth {
             .log(LogDetail.ALL)
             .build();
 
-    @BeforeAll
-    public static void setUpAll(DataGenerator.UserInfo data) {
+    public static void request(DataGenerator.UserInfo data) {
         // сам запрос
         given() // "дано"
                 .spec(requestSpec) // указываем, какую спецификацию используем
