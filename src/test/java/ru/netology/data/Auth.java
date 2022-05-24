@@ -16,11 +16,11 @@ public class Auth {
             .log(LogDetail.ALL)
             .build();
 
-    public static void request(DataGenerator.UserInfo data) {
+        public static void createUser (DataGenerator.UserInfo user) {
         // сам запрос
         given() // "дано"
                 .spec(requestSpec) // указываем, какую спецификацию используем
-                .body(new DataGenerator.UserInfo("vasya", "password", "active"))
+                .body(user)
                 .when() // "когда"
                 .post("/api/system/users") // на какой путь, относительно BaseUri отправляем запрос
                 .then() // "тогда ожидаем"

@@ -1,7 +1,6 @@
 package ru.netology.data;
 
 import com.github.javafaker.Faker;
-import lombok.AllArgsConstructor;
 import lombok.Value;
 
 import java.util.Locale;
@@ -12,7 +11,6 @@ public class DataGenerator {
     }
 
     @Value
-    @AllArgsConstructor
     public static class UserInfo {
         private String login;
         private String password;
@@ -31,15 +29,7 @@ public class DataGenerator {
         return faker.name().username();
     }
 
-    public static String getValidLogin() {
-        return "vasya";
-    }
-
     public static String getInvalidPassword() {
         return faker.internet().password();
-    }
-
-    public static String getValidPassword() {
-        return "password";
     }
 }

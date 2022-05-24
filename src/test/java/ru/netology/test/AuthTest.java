@@ -32,8 +32,8 @@ public class AuthTest {
     @DisplayName("Should successfully login if active user exist")
     public void shouldSuccessfulLoginIfUserExist() {
 
-        Auth.request(active);
-        registration(DataGenerator.getValidLogin(), DataGenerator.getValidPassword());
+        Auth.createUser(active);
+        registration(active.getLogin(), active.getPassword());
         $(byText("Личный кабинет")).shouldBe(visible);
     }
 
@@ -41,7 +41,7 @@ public class AuthTest {
     @DisplayName("Should show error message if user trying to sing in with wrong login")
     public void shouldNotSignForInvalidLogin() {
 
-        Auth.request(active);
+        Auth.createUser(active);
         registration(DataGenerator.getInvalidLogin(), active.getPassword());
         $(".notification__title").shouldHave(text("Ошибка")).shouldBe(visible);
         $(".notification__content").shouldHave(text("Ошибка! Неверно указан логин или пароль")).shouldBe(visible);
@@ -51,7 +51,7 @@ public class AuthTest {
     @DisplayName("Should show error message if user trying to sing in with wrong password")
     public void shouldNotSignForInvalidPassword() {
 
-        Auth.request(active);
+        Auth.createUser(active);
         registration(active.getLogin(), DataGenerator.getInvalidPassword());
         $(".notification__title").shouldHave(text("Ошибка")).shouldBe(visible);
         $(".notification__content").shouldHave(text("Ошибка! Неверно указан логин или пароль")).shouldBe(visible);
